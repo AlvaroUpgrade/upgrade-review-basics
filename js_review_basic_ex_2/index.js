@@ -35,3 +35,26 @@ const users = [
     },
   },
 ];
+
+function volumeAverage(array) {
+  let sum = 0;
+  let cont = 0;
+  let result = 0;
+
+  for (const user of array) {
+    //Iteracion del array
+    // console.log(user);
+
+    for (const elements in user.favoritesSounds) {
+      //Iteracion del objeto
+      // console.log(user.favoritesSounds[elements]);
+      sum += user.favoritesSounds[elements]["volume"];
+      cont++;
+    }
+  }
+
+  result = sum / cont;
+  console.log("Resultado de la media de volumen: ", result);
+}
+
+volumeAverage(users);
