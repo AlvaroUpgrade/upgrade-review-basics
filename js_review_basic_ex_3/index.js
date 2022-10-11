@@ -44,3 +44,26 @@ const users = [
     },
   },
 ];
+
+const accumulator = {};
+
+for (const user of users) {
+  //Despliega el atributo .favoritesSounds del objeto users
+  // console.log(user.favoritesSounds);
+
+  for (const sound in user.favoritesSounds) {
+    //Despliega los objetos dentro del objeto user.favoritesSounds
+    // console.log("sound", sound);
+
+    if (accumulator.hasOwnProperty(sound)) {
+      // console.log("SI EXISTE EL SONIDO");
+      accumulator[sound] += 1;
+    } else {
+      // console.log("NO EXISTE EL SONIDO");
+      accumulator[sound] = 1;
+    }
+  }
+}
+
+console.log("Listado de veces que aparecen los sonidos como favoritos");
+console.log(accumulator);
